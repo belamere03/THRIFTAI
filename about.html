@@ -1,0 +1,1981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Thrift & Thrive</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* ===== ABOUT PAGE STYLES ===== */
+
+/* Missing keyframe animation */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* About Container */
+.about-container {
+    min-height: 100vh;
+    padding: 2rem 0;
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* About Header */
+.about-header {
+    text-align: center;
+    padding: 4rem 2rem 6rem;
+    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 50%, var(--accent-light) 100%);
+    border-radius: 30px;
+    margin-bottom: 5rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(34, 197, 94, 0.3);
+    animation: headerFloat 6s ease-in-out infinite;
+}
+
+.about-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 50%, transparent 70%);
+    animation: rotate 20s linear infinite;
+    opacity: 0.8;
+}
+
+.about-header > * {
+    position: relative;
+    z-index: 2;
+}
+
+.about-header .page-title {
+    font-size: 4rem;
+    font-weight: 900;
+    color: white;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    animation: titleGlow 2s ease-in-out infinite alternate;
+}
+
+.about-header .page-subtitle {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 400;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+    animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+/* Our Story Section */
+.our-story {
+    padding: 5rem 0;
+    margin-bottom: 4rem;
+}
+
+.story-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.story-text {
+    animation: slideInLeft 0.8s ease-out;
+}
+
+.story-text .section-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+    background: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary));
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient 3s ease infinite;
+}
+
+.story-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+.lead-paragraph {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+}
+
+.story-highlights {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(34, 197, 94, 0.05);
+    border-radius: 12px;
+    border-left: 4px solid var(--accent-primary);
+    transition: all 0.3s ease;
+}
+
+.highlight-item:hover {
+    transform: translateX(10px);
+    background: rgba(34, 197, 94, 0.1);
+    box-shadow: 0 5px 15px rgba(34, 197, 94, 0.2);
+}
+
+.highlight-item i {
+    color: var(--accent-primary);
+    font-size: 1.5rem;
+}
+
+.story-image {
+    position: relative;
+    animation: slideInRight 0.8s ease-out;
+}
+
+.story-image .feature-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.story-image .feature-image:hover {
+    transform: scale(1.02);
+}
+
+.image-caption {
+    text-align: center;
+    font-style: italic;
+    color: var(--text-secondary);
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+/* Mission Section */
+.mission-section {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, var(--bg-accent) 0%, var(--bg-primary) 100%);
+    border-radius: 30px;
+    margin-bottom: 5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.mission-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 80%, rgba(34, 197, 94, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.mission-wrapper {
+    position: relative;
+    z-index: 2;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-left: clamp(16px, 3vw, 32px);
+    padding-right: clamp(16px, 3vw, 32px);
+
+}
+
+.mission-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.leaf-icon {
+    font-size: 3rem;
+    color: var(--accent-primary);
+    margin-bottom: 1rem;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.mission-tagline {
+    font-size: 1.3rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-top: 1rem;
+}
+
+.mission-pillars {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+.pillar {
+    background: var(--bg-primary);
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: bounceIn 0.8s ease-out;
+    animation-fill-mode: both;
+}
+
+.pillar:nth-child(1) { animation-delay: 0.1s; }
+.pillar:nth-child(2) { animation-delay: 0.2s; }
+.pillar:nth-child(3) { animation-delay: 0.3s; }
+
+.pillar:hover {
+    transform: translateY(-15px) scale(1.03);
+    box-shadow: 0 25px 50px rgba(34, 197, 94, 0.2);
+}
+
+.pillar-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-light));
+    border-radius: 50%;
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 25px rgba(34, 197, 94, 0.3);
+    animation: pulse 3s ease-in-out infinite;
+}
+
+.pillar h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.pillar p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.mission-vision {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.vision-card, .values-card {
+    background: var(--bg-primary);
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(34, 197, 94, 0.1);
+    border-radius: 20px;
+    padding: 2.5rem;
+    transition: all 0.4s ease;
+    animation: slideInUp 0.8s ease-out;
+    box-shadow: var(--shadow);
+}
+
+.vision-card:hover, .values-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(34, 197, 94, 0.2);
+    border-color: var(--accent-primary);
+}
+
+.vision-card h3, .values-card h3 {
+    color: var(--accent-primary);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.values-list {
+    list-style: none;
+    padding: 0;
+}
+
+.values-list li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+
+.values-list li:hover {
+    background: rgba(34, 197, 94, 0.05);
+}
+
+.values-list i {
+    color: var(--accent-primary);
+    font-size: 1.2rem;
+}
+
+/* Team Section */
+.team-section {
+    padding: 6rem 0;
+    margin-bottom: 5rem;
+}
+
+.team-section .section-title {
+    text-align: center;
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary));
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient 3s ease infinite;
+}
+
+.team-section .section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-bottom: 4rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.team-categories {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.team-category {
+    background: var(--bg-primary);
+    border-radius: 25px;
+    padding: 3rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.category-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+}
+
+.category-title i {
+    color: var(--accent-primary);
+    font-size: 2.5rem;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.team-member {
+    background: var(--bg-primary);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(34, 197, 94, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: bounceIn 0.8s ease-out;
+    animation-fill-mode: both;
+    box-shadow: var(--shadow);
+}
+
+.team-member:nth-child(1) { animation-delay: 0.1s; }
+.team-member:nth-child(2) { animation-delay: 0.2s; }
+.team-member:nth-child(3) { animation-delay: 0.3s; }
+
+.team-member:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(34, 197, 94, 0.2);
+    border-color: var(--accent-primary);
+}
+
+.member-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-light));
+    border-radius: 50%;
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 10px 25px rgba(34, 197, 94, 0.3);
+}
+
+.member-info h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.member-role {
+    color: var(--accent-primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.member-info p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.member-contributions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.contribution {
+    background: rgba(34, 197, 94, 0.1);
+    color: var(--accent-primary);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+/* Volunteer Info Styling */
+.volunteer-info {
+    background: var(--bg-primary);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(34, 197, 94, 0.1);
+    border-radius: 20px;
+    padding: 2.5rem;
+    animation: slideInUp 0.8s ease-out;
+    box-shadow: var(--shadow);
+}
+
+.volunteer-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(34, 197, 94, 0.05);
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+}
+
+.stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--accent-primary);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.volunteer-roles {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+.role-tag {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-light));
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(34, 197, 94, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.role-tag:hover {
+    transform: translateY(-2px);
+}
+
+/* Team Call to Action */
+.team-call-to-action {
+    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+    border-radius: 20px;
+    padding: 3rem;
+    text-align: center;
+    margin-top: 3rem;
+    color: white;
+    animation: slideInUp 0.8s ease-out 0.5s both;
+}
+
+.team-call-to-action h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.team-call-to-action p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-buttons .btn {
+    padding: 1rem 2rem;
+    font-weight: 600;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.cta-buttons .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Sustainability Efforts Section */
+.sustainability-efforts {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-accent) 100%);
+    border-radius: 30px;
+    margin-bottom: 5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.sustainability-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.efforts-overview {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 4rem;
+    align-items: center;
+}
+
+.effort-image .feature-image {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.impact-stats h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.stat {
+    background: var(--bg-primary);
+    padding: 2rem 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.stat:hover {
+    transform: translateY(-5px);
+}
+
+.sustainability-initiatives {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.initiative {
+    background: var(--bg-primary);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    animation: bounceIn 0.8s ease-out;
+    animation-fill-mode: both;
+}
+
+.initiative:nth-child(1) { animation-delay: 0.1s; }
+.initiative:nth-child(2) { animation-delay: 0.2s; }
+.initiative:nth-child(3) { animation-delay: 0.3s; }
+.initiative:nth-child(4) { animation-delay: 0.4s; }
+
+.initiative:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(34, 197, 94, 0.2);
+}
+
+.initiative-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-light));
+    border-radius: 50%;
+    color: white;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 25px rgba(34, 197, 94, 0.3);
+}
+
+.initiative h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.initiative p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.initiative-features {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.feature {
+    background: rgba(34, 197, 94, 0.1);
+    color: var(--accent-primary);
+    padding: 0.5rem 1rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+/* Future Goals */
+.future-goals {
+    margin-top: 4rem;
+}
+
+.future-goals h3 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 3rem;
+}
+
+.goals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.goal-card {
+    background: var(--bg-primary);
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(34, 197, 94, 0.1);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: all 0.4s ease;
+    animation: slideInUp 0.8s ease-out;
+    animation-fill-mode: both;
+    box-shadow: var(--shadow);
+}
+
+.goal-card:nth-child(1) { animation-delay: 0.1s; }
+.goal-card:nth-child(2) { animation-delay: 0.2s; }
+.goal-card:nth-child(3) { animation-delay: 0.3s; }
+
+.goal-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 20px 40px rgba(34, 197, 94, 0.2);
+    border-color: var(--accent-primary);
+}
+
+.goal-card i {
+    font-size: 3rem;
+    color: var(--accent-primary);
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.goal-card h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.goal-card p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Partnerships Section */
+.partnerships {
+    padding: 6rem 0;
+    margin-bottom: 5rem;
+}
+
+.partnerships-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.partnership-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+
+.partnership-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    animation: slideInLeft 0.8s ease-out;
+}
+
+.intro-text {
+    animation: slideInRight 0.8s ease-out;
+}
+
+.intro-text h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+}
+
+.intro-text p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.partnership-categories {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.partner-category {
+    background: var(--bg-primary);
+    border-radius: 25px;
+    padding: 3rem;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.category-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.category-header i {
+    color: var(--accent-primary);
+    font-size: 2.5rem;
+}
+
+.category-header h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.category-header p {
+    color: var(--text-secondary);
+    margin: 0.5rem 0 0 0;
+    font-size: 1rem;
+}
+
+.partners-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.partner-card {
+    background: var(--bg-primary);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(34, 197, 94, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    transition: all 0.4s ease;
+    animation: bounceIn 0.8s ease-out;
+    animation-fill-mode: both;
+    box-shadow: var(--shadow);
+}
+
+.partner-card:nth-child(1) { animation-delay: 0.1s; }
+.partner-card:nth-child(2) { animation-delay: 0.2s; }
+.partner-card:nth-child(3) { animation-delay: 0.3s; }
+
+.partner-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(34, 197, 94, 0.2);
+    border-color: var(--accent-primary);
+}
+
+.partner-info h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.partner-type {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-light));
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.partner-info p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.partner-impact {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.impact-stat {
+    background: rgba(34, 197, 94, 0.1);
+    color: var(--accent-primary);
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+/* Partnership Opportunities */
+.partnership-opportunities {
+    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+    border-radius: 25px;
+    padding: 4rem 3rem;
+    text-align: center;
+    margin-top: 4rem;
+    color: white;
+    animation: slideInUp 0.8s ease-out 0.5s both;
+}
+
+.partnership-opportunities h3 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.partnership-opportunities > p {
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    opacity: 0.9;
+}
+
+.opportunity-types {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.opportunity {
+    background: var(--bg-secondary);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    transition: all 0.4s ease;
+}
+
+.opportunity:hover {
+    transform: translateY(-10px);
+    background: var(--bg-accent);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.opportunity i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.opportunity h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.opportunity p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    line-height: 1.5;
+}
+
+.partnership-cta .btn {
+    padding: 1.2rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 30px;
+    background: white;
+    color: var(--accent-primary);
+    transition: all 0.3s ease;
+}
+
+.partnership-cta .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, var(--bg-accent) 0%, var(--bg-primary) 100%);
+    border-radius: 30px;
+    margin-bottom: 3rem;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.contact-info {
+    animation: slideInLeft 0.8s ease-out;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--bg-primary);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 2px solid rgba(34, 197, 94, 0.1);
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+}
+
+.contact-item:hover {
+    transform: translateX(10px);
+    box-shadow: 0 10px 25px rgba(34, 197, 94, 0.2);
+    border-color: var(--accent-primary);
+}
+
+.contact-item i {
+    color: var(--accent-primary);
+    font-size: 1.5rem;
+    margin-top: 0.2rem;
+    min-width: 24px;
+}
+
+.contact-item h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.contact-item p {
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Responsive Design for About Page */
+@media (max-width: 768px) {
+    .about-header .page-title {
+        font-size: 2.5rem;
+    }
+    
+    .about-header .page-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .story-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .mission-vision {
+        grid-template-columns: 1fr;
+    }
+    
+    .efforts-overview {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .partnership-intro {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .opportunity-types {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="/img/Untitled design (1).png" alt="EcoMarket Logo" class="logo">
+                <span class="brand-name">Thrift & Thrive</span>
+                <div class="nav-school-logo">
+                    <img src="/img/logo.png" alt="OPG World School Logo" class="nav-school-logo-img">
+                </div>
+            </div>
+            
+            <nav class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="shop.html" class="nav-link">Shop</a>
+                <a href="soon.html" class="nav-link">Rentals</a>
+                <!--<a href="offers.html" class="nav-link">Special Offers</a>
+                <a href="contributor.html" class="nav-link">Contributors</a>-->
+                <a href="donate.html" class="nav-link">Donate</a> 
+                <a href="about.html" class="nav-link active">About Us</a>
+                <!--<a href="contact.html" class="nav-link">Contact</a> -->
+            </nav>
+            
+            <div class="header-actions">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-container">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <span class="breadcrumb-separator">/</span>
+                <span class="breadcrumb-current">About Us</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- About Us Page Content -->
+    <div class="about-container">
+        <div class="container">
+            <!-- Page Header -->
+            <div class="about-header">
+                <h1 class="page-title">About Thrift & Thrive</h1>
+                <p class="page-subtitle">Transforming waste into hope, one sustainable creation at a time</p>
+            </div>
+
+            <!-- Our Story Section -->
+            <section class="our-story" id="our-story">
+                <div class="story-content">
+                    <div class="story-text">
+                        <h2 class="section-title">Our Story</h2>
+                        <div class="story-description">
+                            <p class="lead-paragraph">
+                                Thrift & Thrive was born from a simple yet powerful idea: what if we could turn the waste around us into something meaningful, beautiful, and purposeful?
+                            </p>
+                            <p>
+                                In 2023, a group of passionate students at <strong>OPG World School</strong> looked around at the mounting waste crisis and decided to take action. What started as a small classroom project has evolved into a thriving student-led initiative that combines creativity, sustainability, and social impact.
+                            </p>
+                            <p>
+                                Our journey began when we realized that so much of what we consider "waste" still has tremendous potential. Instead of letting these materials end up in landfills, we envisioned a marketplace where discarded items could be transformed into functional, beautiful products through the power of upcycling and creative reuse.
+                            </p>
+                            <div class="story-highlights">
+                                <div class="highlight-item">
+                                    <i class="fas fa-lightbulb"></i>
+                                    <span><strong>Innovation:</strong> Every product tells a story of creative problem-solving</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="fas fa-users"></i>
+                                    <span><strong>Community:</strong> Students, teachers, and volunteers working together</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="fas fa-heart"></i>
+                                    <span><strong>Purpose:</strong> 100% of proceeds support charitable causes</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="story-image">
+                        <img src="/img/bny-wpg-2507211957-1211015016-3.jpg" alt="Students working together on sustainability project" class="feature-image">
+                        <!--<div class="image-caption">
+                            Students collaborating on innovative upcycling projects
+                        </div>-->
+                    </div>
+                </div>
+            </section>
+
+            <!-- The Mission Section -->
+            <section class="mission-section" id="mission">
+                <div class="mission-wrapper">
+                    <div class="mission-header">
+                        <i class="fas fa-leaf leaf-icon"></i>
+                        <h2 class="section-title">The Mission</h2>
+                        <p class="mission-tagline">Creating a sustainable future through conscious action and community collaboration</p>
+                    </div>
+                    
+                    <div class="mission-detailed">
+                        <div class="mission-pillars">
+                            <div class="pillar">
+                                <div class="pillar-icon">
+                                    <i class="fas fa-recycle"></i>
+                                </div>
+                                <h3>Environmental Stewardship</h3>
+                                <p>We divert waste from landfills by transforming discarded materials into valuable products. Every item we create represents resources saved and environmental damage prevented.</p>
+                            </div>
+                            
+                            <div class="pillar">
+                                <div class="pillar-icon">
+                                    <i class="fas fa-hands-helping"></i>
+                                </div>
+                                <h3>Social Impact</h3>
+                                <p>100% of our proceeds go directly to charitable organizations, turning environmental action into social good. We believe sustainability and charity go hand in hand.</p>
+                            </div>
+                            
+                            <div class="pillar">
+                                <div class="pillar-icon">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <h3>Education & Awareness</h3>
+                                <p>We educate our community about circular economy principles, sustainable living practices, and the power of creative reuse through hands-on learning experiences.</p>
+                            </div>
+                        </div>
+
+                        <div class="mission-vision">
+                            <div class="vision-card">
+                                <h3>Our Vision</h3>
+                                <p>We aim to create a world where waste is no longer discarded, but reimagined as a valuable resource—fueling innovation, creativity, and sustainable growth. A world where young people take the lead in shaping environmental change, becoming the innovators, leaders, and changemakers who drive society toward greener solutions. In this vision, every purchase is more than a transaction; it is an investment in a better tomorrow—supporting fair practices, protecting ecosystems, and building a future that is healthier, more resilient, and more inclusive for everyone. </p>
+                            </div>
+                            <div class="values-card">
+                                <h3>Our Values</h3>
+                                <ul class="values-list">
+                                    <li><i class="fas fa-seedling"></i> <strong>Sustainability:</strong> Environment-first thinking in everything we do</li>
+                                    <li><i class="fas fa-users"></i> <strong>Community:</strong> Collaborative solutions and inclusive participation</li>
+                                    <li><i class="fas fa-star"></i> <strong>Quality:</strong> Excellence in craftsmanship and service</li>
+                                    <li><i class="fas fa-arrow-up"></i> <strong>Innovation:</strong> Creative approaches to environmental challenges</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- The Team Section -->
+            <section class="team-section" id="team">
+                <div class="container">
+                    <h2 class="section-title">The Team Behind Thrift & Thrive</h2>
+                    <p class="section-subtitle">Meet the passionate individuals driving our mission forward</p>
+                    
+                    <div class="team-categories">
+                        <!-- Student Leaders -->
+                        <div class="team-category">
+                            <h3 class="category-title">
+                                <i class="fas fa-users"></i>
+                                Student Leaders
+                            </h3>
+                            <div class="team-grid">
+                                <div class="team-member">
+                                    <div class="member-avatar">
+                                        <i class="fas fa-user-graduate"></i>
+                                    </div>
+                                    <div class="member-info">
+                                        <h4>Student Innovation Committee</h4>
+                                        <span class="member-role">Creative Directors & Product Designers</span>
+                                        <p>Our talented students lead the creative process, designing and crafting unique products from waste materials. They bring fresh perspectives and innovative solutions to every project.</p>
+                                        <div class="member-contributions">
+                                            <span class="contribution">50+ Product Designs</span>
+                                            <span class="contribution">Innovation Workshops</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--<div class="team-member">
+                                    <div class="member-avatar">
+                                        <i class="fas fa-laptop-code"></i>
+                                    </div>
+                                    <div class="member-info">
+                                        <h4>Tech & Operations Team</h4>
+                                        <span class="member-role">Platform Development & Management</span>
+                                        <p>Student developers and operations managers who built and maintain our online platform, manage inventory, and handle customer communications.</p>
+                                        <div class="member-contributions">
+                                            <span class="contribution">Platform Development</span>
+                                            <span class="contribution">Inventory Management</span>
+                                        </div>
+                                    </div> -->
+                                </div>
+                                
+                                <!--<div class="team-member">
+                                    <div class="member-avatar">
+                                        <i class="fas fa-bullhorn"></i>
+                                    </div>
+                                    <div class="member-info">
+                                        <h4>Marketing & Outreach</h4>
+                                        <span class="member-role">Community Engagement Specialists</span>
+                                        <p>Students passionate about spreading awareness of sustainable practices and building our community of eco-conscious consumers.</p>
+                                        <div class="member-contributions">
+                                            <span class="contribution">Social Media Strategy</span>
+                                            <span class="contribution">Community Events</span>
+                                        </div> 
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+
+                        <!-- Faculty & Staff -->
+                        <div class="team-category">
+                            <h3 class="category-title">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                                Faculty Mentors
+                            </h3>
+                            <div class="team-grid">
+                                <div class="team-member">
+                                    <div class="member-avatar">
+                                        <i class="fas fa-user-tie"></i>
+                                    </div>
+                                    <div class="member-info">
+                                        <h4>Environmental Science Faculty</h4>
+                                        <span class="member-role">Sustainability Advisors</span>
+                                        <p>Our dedicated teachers provide guidance on environmental best practices, sustainability principles, and the scientific foundation behind our projects.</p>
+                                    </div>
+                                </div>
+
+                                <!--<div class="team-member">
+                                    <div class="member-avatar">
+                                        <i class="fas fa-tools"></i>
+                                    </div>
+                                    <div class="member-info">
+                                        <h4>Workshop & Design Faculty</h4>
+                                        <span class="member-role">Technical Mentors</span>
+                                        <p>Skilled instructors who teach students craftsmanship, design principles, and safe workshop practices for transforming waste into quality products.</p>
+                                    </div> 
+                                </div>
+                            </div> -->
+                        </div>
+
+                        <!-- Volunteers -->
+                        <div class="team-category">
+                            <h3 class="category-title">
+                                <i class="fas fa-heart"></i>
+                                Community Volunteers
+                            </h3>
+                            <div class="volunteer-info">
+                                <div class="volunteer-stats">
+                                    <div class="stat-item">
+                                        <span class="stat-number">150+</span>
+                                        <span class="stat-label">Active Volunteers</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-number">400+</span>
+                                        <span class="stat-label">Volunteer Hours</span>
+                                    </div>
+                                    <div class="stat-item">
+                                       <span class="stat-number">1000+</span>
+                                        <span class="stat-label">People Reached Through Awareness Drives</span>
+                                    </div>
+                                </div>
+                                <div class="volunteer-description">
+                                    <p>Our amazing community volunteers help with material collection, sorting, event organization, and spreading awareness. They include parents, alumni, local business owners, and environmental advocates who believe in our mission.</p>
+                                    <div class="volunteer-roles">
+                                        <span class="role-tag">Material Collectors</span>
+                                        <span class="role-tag">Event Coordinators</span>
+                                        <!--<span class="role-tag">Workshop Assistants</span> -->
+                                        <span class="role-tag">Community Coordinators</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="team-call-to-action">
+                        <h3>Join Our Team!</h3>
+                        <p>Whether you're a student, teacher, or community member, there's a place for you in the Thrift & Thrive family.</p>
+                        <div class="cta-buttons">
+                            <button class="btn btn-primary" onclick="showJoinForm('student')">
+                                <i class="fas fa-user-graduate"></i>
+                                Join as Student
+                            </button>
+                            <button class="btn btn-outline" onclick="showJoinForm('volunteer')">
+                                <i class="fas fa-hands-helping"></i>
+                                Volunteer With Us
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section> 
+
+            <!-- Sustainability Efforts Section -->
+            <section class="sustainability-efforts" id="sustainability">
+                <div class="container">
+                    <div class="sustainability-header">
+                        <h2 class="section-title">Our Sustainability Efforts</h2>
+                        <p class="section-subtitle">Measurable impact through innovative environmental solutions</p>
+                    </div>
+
+                    <div class="efforts-content">
+                        <div class="efforts-overview">
+                            <div class="effort-image">
+                                <img src="https://images.unsplash.com/photo-1495584816685-4bdbf1b5057e" alt="Environmental conservation efforts" class="feature-image">
+                            </div>
+                            <div class="effort-stats">
+                                <div class="impact-stats">
+                                    <h3>Environmental Impact</h3>
+                                    <div class="stats-grid">
+                                        <div class="stat">
+                                            <span class="stat-number">100+</span>
+                                            <span class="stat-label">Items Diverted from Landfills</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="stat-number">20 +</span>
+                                            <span class="stat-label">Waste Materials Repurposed (kg)</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="stat-number">85%</span>
+                                            <span class="stat-label">Reduction in Raw Material Usage</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="stat-number">150 +</span>
+                                            <span class="stat-label">CO2 Emissions Prevented (kg)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sustainability-initiatives">
+                            <div class="initiative">
+                                <div class="initiative-icon">
+                                    <i class="fas fa-recycle"></i>
+                                </div>
+                                <div class="initiative-content">
+                                    <h3>Circular Economy Practices</h3>
+                                    <p>We follow circular economy principles by designing out waste, keeping products and materials in use, and regenerating natural systems. Our entire business model is built around giving new life to discarded materials.</p>
+                                    <div class="initiative-features">
+                                        <span class="feature">Zero-Waste Production</span>
+                                        <span class="feature">Material Recovery Programs</span>
+                                        <span class="feature">Upcycling Workshops</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="initiative">
+                                <div class="initiative-icon">
+                                    <i class="fas fa-leaf"></i>
+                                </div>
+                                <div class="initiative-content">
+                                    <h3>Eco-Conscious Behavior Promotion</h3>
+                                    <p>Beyond our products, we actively promote sustainable lifestyle choices through education, workshops, and community engagement programs that inspire long-term behavior change.</p>
+                                    <div class="initiative-features">
+                                        <span class="feature">Sustainability Workshops</span>
+                                        <span class="feature">Eco-Living Tips</span>
+                                        <span class="feature">Community Challenges</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="initiative">
+                                <div class="initiative-icon">
+                                    <i class="fas fa-water"></i>
+                                </div>
+                                <div class="initiative-content">
+                                    <h3>Resource Conservation</h3>
+                                    <p>We implement water-efficient processes, use renewable energy where possible, and minimize transportation emissions through local sourcing and distribution networks.</p>
+                                    <div class="initiative-features">
+                                        <span class="feature">Water Conservation</span>
+                                        <span class="feature">Energy Efficiency</span>
+                                        <span class="feature">Local Sourcing</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--<div class="initiative">
+                                <div class="initiative-icon">
+                                    <i class="fas fa-seedling"></i>
+                                </div>
+                                <div class="initiative-content">
+                                    <h3>Green Innovation Labs</h3>
+                                    <p>Our students continuously research and develop new methods for material processing, product design, and sustainable manufacturing techniques through our innovation labs.</p>
+                                    <div class="initiative-features">
+                                        <span class="feature">Research Projects</span>
+                                        <span class="feature">Prototype Development</span>
+                                        <span class="feature">Best Practice Sharing</span>
+                                    </div>
+                                </div>
+                            </div>-->
+                        </div>
+
+                        <div class="future-goals">
+                            <h3>2025 Sustainability Goals</h3>
+                            <div class="goals-grid">
+                                <div class="goal-card">
+                                    <i class="fas fa-bullseye"></i>
+                                    <h4>Carbon Neutral Operations</h4>
+                                    <p>Achieve carbon neutrality across all operations through renewable energy and carbon offset programs.</p>
+                                </div>
+                                <div class="goal-card">
+                                    <i class="fas fa-globe"></i>
+                                    <h4>10,000 More Items Rescued</h4>
+                                    <p>Expand our material recovery programs to divert 10,000 additional items from landfills.</p>
+                                </div>
+                                <div class="goal-card">
+                                    <i class="fas fa-school"></i>
+                                    <h4>Collaborative Thrift & Thrive Expansion</h4>
+                                    <p>Expand our Thrift & Thrive initiatives to include local NGOs and community organizations.</p>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </section>
+
+            <!-- Partnerships Section 
+            <section class="partnerships" id="partnerships">
+                <div class="contginer">
+                    <div class="partnerships-header">
+                        <h2 class="section-title">Our Partnerships</h2>
+                        <p class="section-subtitle">Collaborating with organizations that share our vision for a sustainable future</p>
+                    </div>
+                            
+                    <div class="partnerships-content">
+                        <div class="partnership-intro">
+                            <img src="https://images.unsplash.com/photo-1507680576301-98c2029cf434" alt="Partnership collaboration" class="partnership-image">
+                            <div class="intro-text">
+                                <h3>Building Bridges for Impact</h3>
+                                <p>We believe that meaningful change happens through collaboration. Our partnerships with local charities, environmental organizations, educational institutions, and community groups amplify our impact and help us reach more people with our sustainability message.</p>
+                            </div>
+                        </div>
+
+                        <div class="partnership-categories">
+                             Charity Partners 
+                            <div class="partner-category">
+                                <div class="category-header">
+                                    <i class="fas fa-heart"></i>
+                                    <h3>Charity Partners</h3>
+                                    <p>Organizations receiving 100% of our proceeds</p>
+                                </div>
+                                <div class="partners-list">
+                                    <div class="partner-card">
+                                        <div class="partner-info">
+                                            <h4>Local Children's Education Foundation</h4>
+                                            <span class="partner-type">Education Support</span>
+                                            <p>Supporting underprivileged children's access to quality education and school supplies.</p>
+                                            <div class="partner-impact">
+                                                <span class="impact-stat">₹45,000 donated</span>
+                                                <span class="impact-stat">200+ students helped</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="partner-card">
+                                        <div class="partner-info">
+                                            <h4>Community Food Bank Network</h4>
+                                            <span class="partner-type">Hunger Relief</span>
+                                            <p>Combating food insecurity in our local community through sustainable food distribution.</p>
+                                            <div class="partner-impact">
+                                                <span class="impact-stat">₹35,000 donated</span>
+                                                <span class="impact-stat">150+ families served</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="partner-card">
+                                        <div class="partner-info">
+                                            <h4>Environmental Restoration Project</h4>
+                                            <span class="partner-type">Environmental</span>
+                                            <p>Supporting local ecosystem restoration and conservation efforts in our region.</p>
+                                            <div class="partner-impact">
+                                                <span class="impact-stat">₹20,000 donated</span>
+                                                <span class="impact-stat">5 hectares restored</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                             Environmental Organizations 
+                            <div class="partner-category">
+                                <div class="category-header">
+                                    <i class="fas fa-leaf"></i>
+                                    <h3>Environmental Organizations</h3>
+                                    <p>Partners in our sustainability mission</p>
+                                </div>
+                                <div class="partners-list">
+                                    <div class="partner-card">
+                                        <div class="partner-info">
+                                            <h4>Green Schools Alliance</h4>
+                                            <span class="partner-type">Education Network</span>
+                                            <p>Collaborative network of schools implementing environmental programs and sharing best practices.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="partner-card">
+                                        <div class="partner-info">
+                                            <h4>Regional Recycling Cooperative</h4>
+                                            <span class="partner-type">Material Recovery</span>
+                                            <p>Partnership for efficient material collection, sorting, and processing systems.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                             Community Partners 
+                            <div class="partner-category">
+                                <div class="category-header">
+                                    <i class="fas fa-users"></i>
+                                    <h3>Community Partners</h3>
+                                    <p>Local businesses and organizations supporting our mission</p>
+                                </div>
+                                <div class="partners-list">
+                                    <div class="partner-card">
+                                        <div class="partner-info">
+                                            <h4>Local Maker Spaces</h4>
+                                            <span class="partner-type">Workshop Access</span>
+                                            <p>Providing access to tools, equipment, and expertise for our upcycling projects.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="partner-card">
+                                        <div class="partner-info">
+                                            <h4>Community Innovation Hub</h4>
+                                            <span class="partner-type">Innovation Support</span>
+                                            <p>Mentorship, resources, and networking opportunities for our student entrepreneurs.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="partner-card">
+                                        <div class="partner-info">
+                                            <h4>Sustainable Business Network</h4>
+                                            <span class="partner-type">Business Support</span>
+                                            <p>Network of local businesses committed to sustainable practices and circular economy principles.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        Partnership Opportunities 
+                        <div class="partnership-opportunities">
+                            <h3>Partner With Us</h3>
+                            <p>Are you an organization that shares our values? We're always looking for new partnerships that can help amplify our impact.</p>
+                            
+                            <div class="opportunity-types">
+                                <div class="opportunity">
+                                    <i class="fas fa-handshake"></i>
+                                    <h4>Charity Partnerships</h4>
+                                    <p>Receive funding support from our proceeds while helping us direct impact where it's needed most.</p>
+                                </div>
+                                <div class="opportunity">
+                                    <i class="fas fa-truck"></i>
+                                    <h4>Supply & Logistics</h4>
+                                    <p>Help us with material collection, transportation, or distribution to expand our reach.</p>
+                                </div>
+                                <div class="opportunity">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <h4>Educational Collaboration</h4>
+                                    <p>Partner with us to bring sustainability education and hands-on learning to more students.</p>
+                                </div>
+                                <div class="opportunity">
+                                    <i class="fas fa-lightbulb"></i>
+                                    <h4>Innovation Partners</h4>
+                                    <p>Collaborate on research, development, and innovation in sustainable practices and technologies.</p>
+                                </div>
+                            </div>
+
+                            <div class="partnership-cta">
+                                <button class="btn btn-primary" onclick="showPartnershipForm()">
+                                    <i class="fas fa-envelope"></i>
+                                    Explore Partnership Opportunities
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section> -->
+
+            <!-- Contact Section 
+            <section class="contact-section" id="contact">
+                <div class="container">
+                    <h2 class="section-title">Get In Touch</h2>
+                    <p class="section-subtitle">Have questions, ideas, or want to get involved? We'd love to hear from you!</p>
+                    
+                    <div class="contact-grid">
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <h4>Visit Us</h4>
+                                    <p>OPG World School<br>Sustainability Lab & Workshop<br>Building A, Room 205</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <h4>Email Us</h4>
+                                    <p>info@ecomarket.org<br>partnerships@ecomarket.org</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <h4>Workshop Hours</h4>
+                                    <p>Monday - Friday: 3:00 PM - 6:00 PM<br>Saturday: 10:00 AM - 4:00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contact-form">
+                            <h3>Send us a message</h3>
+                            <form id="contactForm">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="contactName">Your Name</label>
+                                        <input type="text" id="contactName" name="name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="contactEmail">Email Address</label>
+                                        <input type="email" id="contactEmail" name="email" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactSubject">Subject</label>
+                                    <select id="contactSubject" name="subject" required>
+                                        <option value="">Select a topic...</option>
+                                        <option value="general">General Inquiry</option>
+                                        <option value="partnership">Partnership Opportunity</option>
+                                        <option value="volunteer">Volunteer Interest</option>
+                                        <option value="donate">Material Donation</option>
+                                        <option value="student">Student Program</option>
+                                        <option value="press">Media/Press Inquiry</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactMessage">Message</label>
+                                    <textarea id="contactMessage" name="message" rows="5" placeholder="Tell us how we can help or how you'd like to get involved..."></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-paper-plane"></i>
+                                    Send Message
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div> -->
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <img src="/img/Untitled design (1).png" alt="EcoMarket Logo" class="footer-logo">
+                        <span class="footer-brand-name">Thrift & Thrive</span>
+                    </div>
+                    <p class="footer-description">
+                        Creating a sustainable future through conscious consumption and community collaboration.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/OPGWORLDSCHOOLDWARKA/" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="https://x.com/WorldOpg" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/opgworldschool001/?hl=en" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@opgworldschooldwarka2305" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="soon.html">Rentals</a></li>
+                        <!--<li><a href="index.html#offers">Special Offers</a></li> -->
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>About</h4>
+                    <ul class="footer-links">
+                        <li><a href="#our-story">Our Story</a></li>
+                        <li><a href="#mission">Mission</a></li>
+                        <li><a href="#team">The Team</a></li>
+                        <li><a href="#sustainability">Sustainability</a></li>
+                    </ul>
+                </div>
+                
+                <!--<div class="footer-section">
+                    <h4>Community</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html#contributors">Contributors</a></li>
+                        <li><a href="index.html#donate">Donate Materials</a></li>
+                        <li><a href="#partnerships">Partnerships</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div> -->
+                
+                <!--<div class="footer-section">
+                    <h4>Stay Updated</h4>
+                    <p>Subscribe to our newsletter for the latest sustainable deals and eco-tips.</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="Enter your email" class="newsletter-input" required>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-envelope"></i>
+                        </button>
+                    </form>
+                </div> -->
+                <div class="footer-section school-branding">
+    <div class="school-logo-container">
+        <img src="/img/logo.png" alt="OPG World School Logo" class="school-logo">
+    </div>
+    <p class="school-motto">
+        Proudly representing OPG World School—where values meet vision
+    </p>
+</div>
+            </div> 
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Thrift & Thrive. All rights reserved. | Building a sustainable future together.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <div class="modal-body" id="modalBody">
+                <!-- Modal content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // About page specific JavaScript
+        function showJoinForm(type) {
+            const modalBody = document.getElementById('modalBody');
+            let formContent = '';
+            
+            if (type === 'student') {
+                formContent = `
+                    <h3>Join Thrift & Thrive as a Student</h3>
+                    <form id="studentJoinForm">
+                        <div class="form-group">
+                            <label for="studentName">Full Name</label>
+                            <input type="text" id="studentName" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="studentEmail">Email</label>
+                            <input type="email" id="studentEmail" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="studentSchool">School/Institution</label>
+                            <input type="text" id="studentSchool" name="school" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="studentInterest">Areas of Interest</label>
+                            <select id="studentInterest" name="interest" required>
+                                <option value="">Select area...</option>
+                                <option value="design">Product Design</option>
+                                <option value="tech">Technology & Development</option>
+                                <option value="marketing">Marketing & Outreach</option>
+                                <option value="operations">Operations & Management</option>
+                                <option value="research">Research & Innovation</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit Application</button>
+                    </form>
+                `;
+            } else {
+                formContent = `
+                    <h3>Volunteer with Thrift & Thrive</h3>
+                    <form id="volunteerJoinForm">
+                        <div class="form-group">
+                            <label for="volunteerName">Full Name</label>
+                            <input type="text" id="volunteerName" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="volunteerEmail">Email</label>
+                            <input type="email" id="volunteerEmail" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="volunteerRole">Volunteer Role</label>
+                            <select id="volunteerRole" name="role" required>
+                                <option value="">Select role...</option>
+                                <option value="collection">Material Collection</option>
+                                <option value="events">Event Coordination</option>
+                                <option value="workshop">Workshop Assistant</option>
+                                <option value="community">Community Liaison</option>
+                                <option value="mentor">Student Mentor</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="volunteerAvailability">Availability</label>
+                            <textarea id="volunteerAvailability" name="availability" rows="3" placeholder="When are you available to volunteer?"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit Volunteer Application</button>
+                    </form>
+                `;
+            }
+            
+            modalBody.innerHTML = formContent;
+            document.getElementById('modal').style.display = 'block';
+        }
+
+        function showPartnershipForm() {
+            const modalBody = document.getElementById('modalBody');
+            modalBody.innerHTML = `
+                <h3>Partnership Inquiry</h3>
+                <form id="partnershipForm">
+                    <div class="form-group">
+                        <label for="orgName">Organization Name</label>
+                        <input type="text" id="orgName" name="organization" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactPerson">Contact Person</label>
+                        <input type="text" id="contactPerson" name="contact" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="partnershipType">Partnership Type</label>
+                        <select id="partnershipType" name="type" required>
+                            <option value="">Select type...</option>
+                            <option value="charity">Charity Partnership</option>
+                            <option value="supply">Supply & Logistics</option>
+                            <option value="education">Educational Collaboration</option>
+                            <option value="innovation">Innovation Partnership</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="partnershipDetails">Partnership Details</label>
+                        <textarea id="partnershipDetails" name="details" rows="4" placeholder="Tell us about your organization and how you'd like to partner with us..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit Partnership Inquiry</button>
+                </form>
+            `;
+            document.getElementById('modal').style.display = 'block';
+        }
+
+        // Form submissions
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle contact form submission
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for your message! We\'ll get back to you soon.');
+                    this.reset();
+                });
+            }
+        });
+    </script>
+</body>
+</html>

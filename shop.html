@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Thrift & Thrive</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="/img/Untitled design (1).png" alt="EcoMarket Logo" class="logo">
+                <span class="brand-name">Thrift & Thrive</span>
+                <div class="nav-school-logo">
+                    <img src="/img/logo.png" alt="OPG World School Logo" class="nav-school-logo-img">
+                </div>
+            </div>
+            
+            <nav class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="shop.html" class="nav-link active">Shop</a>
+                <a href="soon.html" class="nav-link">Rentals</a> 
+                <!--<a href="offers.html" class="nav-link">Special Offers</a> -->
+                <!--<a href="contributor.html" class="nav-link">Contributors</a> -->
+                <a href="donate.html" class="nav-link">Donate</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <!--<a href="contact.html" class="nav-link">Contact</a> -->
+            </nav>
+            
+            <div class="header-actions">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-container">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <span class="breadcrumb-separator">/</span>
+                <span class="breadcrumb-current">Shop</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Shop Page Content -->
+    <div class="shop-container">
+        <div class="container">
+            <div class="shop-layout">
+                
+                <!-- Filters Sidebar -->
+                <aside class="filters-sidebar">
+                    <div class="filter-section">
+                        <h3 class="filter-title">Categories</h3>
+                        <div class="filter-options">
+                            <label class="filter-checkbox">
+                                <input type="checkbox" value="all" id="categoryAll" checked>
+                                <span class="checkmark"></span>
+                                All Categories
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" value="accessories" class="category-filter">
+                                <span class="checkmark"></span>
+                                Accessories
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" value="souvenirs" class="category-filter">
+                                <span class="checkmark"></span>
+                                Souvenirs
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" value="home-decor" class="category-filter">
+                                <span class="checkmark"></span>
+                                Home Décor
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" value="jewelry" class="category-filter">
+                                <span class="checkmark"></span>
+                                Jewelry
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" value="bags" class="category-filter">
+                                <span class="checkmark"></span>
+                                Bags & Pouches
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" value="stationery" class="category-filter">
+                                <span class="checkmark"></span>
+                                Stationery
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" value="home-utility" class="category-filter">
+                                <span class="checkmark"></span>
+                                Home Utility
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" value="games" class="category-filter">
+                                <span class="checkmark"></span>
+                                Games & Toys
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" value="apparel" class="category-filter">
+                                <span class="checkmark"></span>
+                                Apparel
+                            </label>
+                        </div>
+                    </div>
+
+                    <!--<div class="filter-section">
+                        <h3 class="filter-title">Price Range</h3>
+                        <div class="price-range">
+                            <div class="price-inputs">
+                                <input type="number" id="minPrice" placeholder="Min" min="0">
+                                <span>-</span>
+                                <input type="number" id="maxPrice" placeholder="Max" min="0">
+                            </div>
+                            <div class="price-slider">
+                                <input type="range" id="priceSlider" min="0" max="1000" value="500">
+                                <div class="slider-value">₹0 - ₹<span id="sliderValue">500</span></div>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <div class="filter-section">
+                        <h3 class="filter-title">Material Type</h3>
+                        <div class="filter-options">
+                            <label class="filter-checkbox">
+                                <input type="checkbox" value="mixed" class="material-filter">
+                                <span class="checkmark"></span>
+                                Mixed
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" value="fabric" class="material-filter">
+                                <span class="checkmark"></span>
+                                Fabric
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" value="metal" class="material-filter">
+                                <span class="checkmark"></span>
+                                Metal 
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" value="jute" class="material-filter">
+                                <span class="checkmark"></span>
+                                Jute
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" value="paper" class="material-filter">
+                                <span class="checkmark"></span>
+                                Paper
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" value="ceramic" class="material-filter">
+                                <span class="checkmark"></span>
+                                Ceramic
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" value="plastic" class="material-filter">
+                                <span class="checkmark"></span>
+                                Plastic
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3 class="filter-title">Sort By</h3>
+                        <select id="sortBy" class="sort-select">
+                            <option value="newest">New Arrivals</option>
+                            <option value="popular">Best Sellers</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="rating">Highest Rated</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-actions">
+                        <button class="btn btn-outline" id="clearFilters">
+                            <i class="fas fa-times"></i>
+                            Clear All
+                        </button>
+                    </div>
+
+                </aside>
+
+                <!-- Main Content -->
+                <main class="shop-main">
+                    <!-- Shop Header -->
+                    <div class="shop-header">
+                        <h1 class="shop-title">Sustainable Products</h1>
+                        <p class="shop-subtitle">Discover eco-friendly items that make a difference</p>
+                        <div class="shop-stats">
+                            <span class="results-count">Showing <span id="resultsCount">0</span> products</span>
+                            <div class="view-toggles">
+                                <button class="view-toggle active" data-view="grid">
+                                    <i class="fas fa-th-large"></i>
+                                </button>
+                                <button class="view-toggle" data-view="list">
+                                    <i class="fas fa-list"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Products Grid -->
+                    <section class="products-section">
+                        <div class="products-grid" id="productsGrid">
+                            
+                            <!-- Product 1: Upcycled Fabric Bangles -->
+                            <div class="product-card" data-category="accessories" data-material="fabric" data-price="50" data-rating="4.7" data-date="2025-01-15">
+                                <img src="img/bangles.jpg" alt="Upcycled Fabric Bangles" class="product-image">
+                                <button class="quick-view-btn" onclick="openQuickView(1)">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <div class="product-info">
+                                    <h3 class="product-title">Upcycled Fabric Bangles</h3>
+                                    <p class="product-description">Colorful bangles made from upcycled fabric, promoting sustainable fashion..</p>
+                                    <div class="product-meta">
+                                        <span class="product-price">₹50.00</span>
+                                        <span class="product-condition">New</span>
+                                    </div>
+                                    <div class="product-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                        <span class="rating-value">4.7</span>
+                                    </div>
+                                    <div class="product-actions">
+                                        <button class="btn btn-primary btn-small" onclick="addToCart(1)">
+                                            <i class="fas fa-cart-plus"></i>
+                                            Add to Cart
+                                        </button>
+                                        <button class="btn btn-rent btn-small" onclick="rentProduct(1)">
+                                            <i class="fas fa-clock"></i>
+                                            Rent Now
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 2: Cloth Keychain -->
+                            <div class="product-card" data-category="souvenirs" data-material="fabric" data-price="50" data-rating="4.5" data-date="2025-01-20">
+                                <img src="img/keychain.jpg" alt="Cloth Keychain" class="product-image">
+                                <button class="quick-view-btn" onclick="openQuickView(2)">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <div class="product-info">
+                                    <h3 class="product-title">Cloth Keychain</h3>
+                                    <p class="product-description">Eco-friendly cloth keychains with unique patterns and sustainable design.</p>
+                                    <div class="product-meta">
+                                        <span class="product-price">₹50.00</span>
+                                        <span class="product-condition">New</span>
+                                    </div>
+                                    <div class="product-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                        <span class="rating-value">4.5</span>
+                                    </div>
+                                    <div class="product-actions">
+                                        <button class="btn btn-primary btn-small" onclick="addToCart(2)">
+                                            <i class="fas fa-cart-plus"></i>
+                                            Add to Cart
+                                        </button>
+                                        <button class="btn btn-rent btn-small" onclick="rentProduct(2)">
+                                            <i class="fas fa-clock"></i>
+                                            Rent Now
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 3: Dream Catcher (Featured) -->
+                            <div class="product-card featured-product" data-category="home-decor" data-material="mixed" data-price="150" data-rating="4.8" data-date="2025-01-25">
+                                <img src="img/dreamcatcher.jpg" alt="Dream Catcher" class="product-image">
+                                <button class="quick-view-btn" onclick="openQuickView(3)">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <div class="product-info">
+                                    <h3 class="product-title">Dream Catcher</h3>
+                                    <p class="product-description">Traditional dream catchers with modern twist, available in combo and individual pieces.</p>
+                                    <div class="product-meta">
+                                        <span class="product-price">₹150.00</span>
+                                        <span class="product-condition">New</span>
+                                    </div>
+                                    <div class="product-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <span class="rating-value">4.8</span>
+                                    </div>
+                                    <div class="product-actions">
+                                        <button class="btn btn-primary btn-small" onclick="addToCart(3)">
+                                            <i class="fas fa-cart-plus"></i>
+                                            Add to Cart
+                                        </button>
+                                        <button class="btn btn-rent btn-small" onclick="rentProduct(3)">
+                                            <i class="fas fa-clock"></i>
+                                            Rent Now
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 4: Earring Set (Featured) -->
+                            <div class="product-card featured-product" data-category="jewelry" data-material="mixed" data-price="30" data-rating="4.6" data-date="2025-01-30">
+                                <img src="img/earring.jpg" alt="Earring Set" class="product-image">
+                                <button class="quick-view-btn" onclick="openQuickView(4)">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <div class="product-info">
+                                    <h3 class="product-title">Earring Set</h3>
+                                    <p class="product-description">Beautiful handmade earring sets with sustainable materials and artistic design.</p>
+                                    <div class="product-meta">
+                                        <span class="product-price">₹30.00</span>
+                                        <span class="product-condition">New</span>
+                                    </div>
+                                    <div class="product-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                        <span class="rating-value">4.6</span>
+                                    </div>
+                                    <div class="product-actions">
+                                        <button class="btn btn-primary btn-small" onclick="addToCart(4)">
+                                            <i class="fas fa-cart-plus"></i>
+                                            Add to Cart
+                                        </button>
+                                        <button class="btn btn-rent btn-small" onclick="rentProduct(4)">
+                                            <i class="fas fa-clock"></i>
+                                            Rent Now
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 5: Block-Printed Jute Pouches -->
+                            <div class="product-card" data-category="bags" data-material="jute" data-price="50" data-rating="4.4" data-date="2025-02-05">
+                                <img src="img/puches.jpg" alt="Block-Printed Jute Pouches" class="product-image">
+                                <button class="quick-view-btn" onclick="openQuickView(5)">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <div class="product-info">
+                                    <h3 class="product-title">Block-Printed Jute Pouches</h3>
+                                    <p class="product-description">Eco-friendly jute pouches featuring traditional block-printed designs, perfect for gifting or storage..</p>
+                                    <div class="product-meta">
+                                        <span class="product-price">₹50.00</span>
+                                        <span class="product-condition">New</span>
+                                    </div>
+                                    <div class="product-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <span class="rating-value">4.4</span>
+                                    </div>
+                                    <div class="product-actions">
+                                        <button class="btn btn-primary btn-small" onclick="addToCart(5)">
+                                            <i class="fas fa-cart-plus"></i>
+                                            Add to Cart
+                                        </button>
+                                        <button class="btn btn-rent btn-small" onclick="rentProduct(5)">
+                                            <i class="fas fa-clock"></i>
+                                            Rent Now
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 6: Tie-Dye Fabric Pouches -->
+                            <div class="product-card" data-category="bags" data-material="fabric" data-price="100" data-rating="4.5" data-date="2025-02-10">
+                                <img src="img/pouches.jpg" alt="Tie-Dye Fabric Pouches" class="product-image">
+                                <button class="quick-view-btn" onclick="openQuickView(6)">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <div class="product-info">
+                                    <h3 class="product-title">Tie-Dye Fabric Pouches</h3>
+                                    <p class="product-description">Colorful pouches made from tie-dye fabric, perfect for storing small items..</p>
+                                    <div class="product-meta">
+                                        <span class="product-price">₹100.00</span>
+                                        <span class="product-condition">New</span>
+                                    </div>
+                                    <div class="product-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                        <span class="rating-value">4.5</span>
+                                    </div>
+                                    <div class="product-actions">
+                                        <button class="btn btn-primary btn-small" onclick="addToCart(6)">
+                                            <i class="fas fa-cart-plus"></i>
+                                            Add to Cart
+                                        </button>
+                                        <button class="btn btn-rent btn-small" onclick="rentProduct(6)">
+                                            <i class="fas fa-clock"></i>
+                                            Rent Now
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 7: Handcrafted Envelopes -->
+                            <div class="product-card" data-category="stationery" data-material="paper" data-price="50" data-rating="4.7" data-date="2025-02-12">
+                                <img src="img/envelope.jpg" alt="Handcrafted Envelopes" class="product-image">
+                                <button class="quick-view-btn" onclick="openQuickView(7)">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <div class="product-info">
+                                    <h3 class="product-title">Handcrafted Envelopes</h3>
+                                    <p class="product-description">Artistic paper envelopes made with hand-painted and printed designs, perfect for gifting or festive occasions..</p>
+                                    <div class="product-meta">
+                                        <span class="product-price">₹50.00</span>
+                                        <span class="product-condition">New</span>
+                                    </div>
+                                    <div class="product-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                        <span class="rating-value">4.7</span>
+                                    </div>
+                                    <div class="product-actions">
+                                        <button class="btn btn-primary btn-small" onclick="addToCart(7)">
+                                            <i class="fas fa-cart-plus"></i>
+                                            Add to Cart
+                                        </button>
+                                        <button class="btn btn-rent btn-small" onclick="rentProduct(7)">
+                                            <i class="fas fa-clock"></i>
+                                            Rent Now
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 8: Ceramic Mug Set (Featured) -->
+                            <div class="product-card featured-product" data-category="home-utility" data-material="ceramic" data-price="150" data-rating="4.8" data-date="2025-02-15">
+                                <img src="img/mugs.jpg" alt="Ceramic Mug Set" class="product-image">
+                                <button class="quick-view-btn" onclick="openQuickView(8)">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <div class="product-info">
+                                    <h3 class="product-title">Ceramic Mug Set</h3>
+                                    <p class="product-description">Beautiful ceramic mug set with unique glazing and sustainable production methods.</p>
+                                    <div class="product-meta">
+                                        <span class="product-price">₹150.00</span>
+                                        <span class="product-condition">New</span>
+                                    </div>
+                                    <div class="product-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <span class="rating-value">4.8</span>
+                                    </div>
+                                    <div class="product-actions">
+                                        <button class="btn btn-primary btn-small" onclick="addToCart(8)">
+                                            <i class="fas fa-cart-plus"></i>
+                                            Add to Cart
+                                        </button>
+                                        <button class="btn btn-rent btn-small" onclick="rentProduct(8)">
+                                            <i class="fas fa-clock"></i>
+                                            Rent Now
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 9: Magnetic Wooden Chess Set (Featured) -->
+                            <div class="product-card featured-product" data-category="games" data-material="mixed" data-price="300" data-rating="4.9" data-date="2025-02-18">
+                                <img src="img/chess.jpg" alt="Magnetic Wooden Chess Set" class="product-image">
+                                <button class="quick-view-btn" onclick="openQuickView(9)">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <div class="product-info">
+                                    <h3 class="product-title">Magnetic Wooden Chess Set</h3>
+                                    <p class="product-description">Compact magnetic chess set with wooden pieces, ideal for travel and quick strategic games..</p>
+                                    <div class="product-meta">
+                                        <span class="product-price">₹300.00</span>
+                                        <span class="product-condition">New</span>
+                                    </div>
+                                    <div class="product-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <span class="rating-value">4.9</span>
+                                    </div>
+                                    <div class="product-actions">
+                                        <button class="btn btn-primary btn-small" onclick="addToCart(9)">
+                                            <i class="fas fa-cart-plus"></i>
+                                            Add to Cart
+                                        </button>
+                                        <button class="btn btn-rent btn-small" onclick="rentProduct(9)">
+                                            <i class="fas fa-clock"></i>
+                                            Rent Now
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 10: Assorted Neckties -->
+                            <div class="product-card" data-category="apparel" data-material="fabric" data-price="100" data-rating="4.3" data-date="2025-02-20">
+                                <img src="img/tie.jpg" alt="Assorted Neckties" class="product-image">
+                                <button class="quick-view-btn" onclick="openQuickView(10)">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <div class="product-info">
+                                    <h3 class="product-title">Assorted Neckties</h3>
+                                    <p class="product-description">A collection of elegant printed neckties in various colors and patterns for formal and semi-formal wear..</p>
+                                    <div class="product-meta">
+                                        <span class="product-price">₹100.00</span>
+                                        <span class="product-condition">New</span>
+                                    </div>
+                                    <div class="product-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <span class="rating-value">4.3</span>
+                                    </div>
+                                    <div class="product-actions">
+                                        <button class="btn btn-primary btn-small" onclick="addToCart(10)">
+                                            <i class="fas fa-cart-plus"></i>
+                                            Add to Cart
+                                        </button>
+                                        <button class="btn btn-rent btn-small" onclick="rentProduct(10)">
+                                            <i class="fas fa-clock"></i>
+                                            Rent Now
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <div class="shop-notice-overlay" id="shopNoticeOverlay">
+    <div class="shop-notice-popup">
+        <div class="shop-notice-header">
+            <div class="notice-icon">
+                <i class="fas fa-store"></i>
+            </div>
+            <button class="shop-notice-close" id="shopNoticeClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="shop-notice-content">
+            <h2 class="shop-notice-title">Shop Currently Unavailable</h2>
+            <p class="shop-notice-message">
+                We're sorry, but our online shop functionality is temporarily not available. 
+                To purchase any of our amazing sustainable products, please visit us at the school location.
+            </p>
+            <div class="shop-notice-info">
+                <div class="notice-info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Visit our physical store at the school</span>
+                </div>
+                <div class="notice-info-item">
+                    <i class="fas fa-leaf"></i>
+                    <span>All products are eco-friendly & sustainable</span>
+                </div>
+            </div>
+            <div class="shop-notice-actions">
+                <button class="btn btn-primary shop-notice-understood" id="shopNoticeUnderstood">
+                    <i class="fas fa-check"></i>
+                    Got it, thanks!
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Quick View Modal -->
+    <div class="modal quick-view-modal" id="quickViewModal">
+        <div class="modal-content quick-view-content">
+            <span class="modal-close" onclick="closeQuickView()">&times;</span>
+            <div class="quick-view-body" id="quickViewBody">
+                <!-- Quick view content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <img src="/Untitled design (1).png" alt="EcoMarket Logo" class="footer-logo">
+                        <span class="footer-brand-name">Thrift & Thrive</span>
+                    </div>
+                    <p class="footer-description">
+                        Creating a sustainable future through conscious consumption and community collaboration.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/OPGWORLDSCHOOLDWARKA/" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="https://x.com/WorldOpg" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/opgworldschool001/?hl=en" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/opg-world-school-dwarka" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="soon.html">Rentals</a></li>
+                        <!--<li><a href="#offers">Special Offers</a></li> -->
+                    </ul>
+                </div>
+                
+                <!--<div class="footer-section">
+                    <h4>Community</h4>
+                    <ul class="footer-links">
+                        <li><a href="#contributors">Contributors</a></li>
+                        <li><a href="#donate">Donate</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div> -->
+
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="showModal('faq')">FAQs</a></li>
+                        <li><a href="#" onclick="showModal('shipping')">Shipping & Returns</a></li>
+                        <li><a href="#" onclick="showModal('privacy')">Privacy Policy</a></li>
+                        <li><a href="#" onclick="showModal('terms')">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                
+                <!--<div class="footer-section">
+                    <h4>Stay Updated</h4>
+                    <p>Subscribe to our newsletter for the latest sustainable deals and eco-tips.</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="Enter your email" class="newsletter-input" required>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-envelope"></i>
+                        </button>
+                    </form>
+                </div> -->
+                <div class="footer-section school-branding">
+    <div class="school-logo-container">
+        <img src="/img/logo.png" alt="OPG World School Logo" class="school-logo">
+    </div>
+    <p class="school-motto">
+        Proudly representing OPG World School—where values meet vision
+    </p>
+</div>
+
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Thrift & Thrive. All rights reserved. | Building a sustainable future together.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="shop.js"></script>
+</body>
+</html>
